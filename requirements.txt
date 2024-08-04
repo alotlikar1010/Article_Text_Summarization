@@ -9,4 +9,7 @@ pytorch_lightning
 transformers
 tensorboard
 sentence-transformers
+pymongo
+numpy
+scikit-learn
 -e .

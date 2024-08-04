@@ -6,7 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+#avoid uploading
 summ/
+artifacts/
+log_file/
+text_summarization.csv
 # Distribution / packaging
 .Python
 build/
