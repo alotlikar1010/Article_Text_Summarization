@@ -45,4 +45,19 @@ class ModelTrainerConfig:
     checkpoint_dir: str = os.path.join(model_trainer_artifacts_dir,CHECKPOINT_DIR)
     checkpoint_fname: str = 'best_checkpoint'
     
-    
+
+@dataclass
+class ModelEvaluationConfig:
+    saved_model_directory: str = SAVED_MODEL_DIRECTORY
+    model_evaluation_artifacts_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_EVALUATION_DIR)
+    in_channels: int = IN_CHANNELS
+    base_loss: float = BASE_LOSS
+
+@dataclass
+class PredictionPipelineConfig:
+    input_max_length: int = 400
+    output_max_length: int = 100
+    num_beams: int = 4
+    base_model_name: str = PRETRAINED_MODEL_NAME
+    prediction_artifact_dir = os.path.join(ROOT_DIR, PREDICTION_PIPELINE_DIR_NAME)
+    model_download_path = os.path.join(prediction_artifact_dir, PREDICTION_MODEL_DIR_NAME)
