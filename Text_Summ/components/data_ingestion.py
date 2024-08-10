@@ -26,8 +26,8 @@ class DataIngestion:
             logging.info(f"Exporting collection data as pandas dataframe")
             #Exporting collection data as pandas dataframe
             df:pd.DataFrame  = get_collection_as_dataframe(
-                database_name="textsumm", 
-                collection_name="collection")
+                database_name=DATA_INGESTION_DATABASE_NAME, 
+                collection_name=DATA_INGESTION_COLLECTION_NAME)
 
             logging.info("Saving Data from Database to local folder ....")
             
