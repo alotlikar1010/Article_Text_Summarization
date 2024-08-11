@@ -12,8 +12,7 @@ class ArticleDataLoader(pl.LightningModule):
     It handle data loading and preprocessing for our prject dataset 
     """
     
-    def __init__(self,train_file_path, val_file_path,tokenizer,batch_size
-                 ,column_name ,source_len=1024,target_len=128, corpus_size=500):
+    def __init__(self,train_file_path, val_file_path,tokenizer,batch_size, source_len=1024,target_len=128, corpus_size=500):
         
         super().__init__()
         self.tokenizer = tokenizer
@@ -21,7 +20,7 @@ class ArticleDataLoader(pl.LightningModule):
         self.val_file_path = val_file_path
         self.batch_size = batch_size
         self.nrows = corpus_size
-        self.columns_name = column_name
+        self.columns_name = ['article', 'summary']
         self.target_len = target_len
         self.source_len = source_len  
     
@@ -33,6 +32,7 @@ class ArticleDataLoader(pl.LightningModule):
         val_data =pd.read_csv(self.val_file_path, nrows= self.nrows/0.20,encoding='latin-1') 
         
         train_data = train_data[self.columns_name]
+        print(train_data)
         val_data = val_data[self.columns_name] 
         
         #removes the rows that contains NULL values 

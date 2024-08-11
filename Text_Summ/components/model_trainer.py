@@ -1,6 +1,6 @@
 from Text_Summ.constant import *
-from Text_Summ.entity.artifact_entity import *
-from Text_Summ.entity.config_entity import *
+from Text_Summ.entity.artifact_entity import ModelTrainerArtifacts
+from Text_Summ.entity.config_entity import ModelTrainerConfig
 from Text_Summ.exception import CustomException
 from Text_Summ.logger import logging
 from Text_Summ.exception import CustomException
@@ -21,6 +21,7 @@ class ModelTrainer:
     def get_trainer_setup(self):
         try:
             logging.info("get trainer setup method started")
+            logging.info(self.model_trainer_config)
             checkpoint_dir = self.model_trainer_config.checkpoint_dir
             checkpoint_fname = self.model_trainer_config.checkpoint_fname
             self.checkpoint_callback = ModelCheckpoint(
@@ -68,7 +69,8 @@ class ModelTrainer:
             trainer = self.get_trainer_object()
             
             torch.cuda.empty_cache()
-            trainer.fit(self.model, self.dataloader)
+            logging.info(self.dataloader)
+            trainer.fit(model=self.model, datamodule=self.dataloader)
             logging.info("model fine tunning done")
             
             trained_model_loss = trainer.callback_metrics

@@ -35,16 +35,12 @@ class DataIngestionConfig:
     
 @dataclass
 class ModelTrainerConfig:
-    model_trainer_artifacts_dir: str = os.path.join(
-        ROOT_DIR, training_pipeline_config.artifact_dir,
-        MODEL_TRAINING_ARTIFACTS_DIR
-    )
-    
+    model_trainer_artifacts_dir: str = os.path.join(ROOT_DIR, training_pipeline_config.artifact_dir,MODEL_TRAINING_ARTIFACTS_DIR)
     trained_model_dir: str = os.path.join(model_trainer_artifacts_dir,'trained_model', TRAINED_MODEL_NAME)
     epochs: int = EPOCHS
     checkpoint_dir: str = os.path.join(model_trainer_artifacts_dir,CHECKPOINT_DIR)
-    checkpoint_fname: str = 'best_checkpoint'
-    
+    checkpoint_fname: str = 'best_checkpoint'    
+
 
 @dataclass
 class ModelEvaluationConfig:

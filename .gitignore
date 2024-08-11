@@ -11,6 +11,8 @@ summ/
 artifacts/
 log_file/
 text_summarization.csv
+pytorch_lighting_logs/
+Saved_model/
 # Distribution / packaging
 .Python
 build/

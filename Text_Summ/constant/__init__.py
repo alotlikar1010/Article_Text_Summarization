@@ -42,7 +42,7 @@ NUM_WORKERS = 0
 
 
 # constants related to pipeline
-COLUMNS_NAME =  ['text', 'ctext']
+COLUMNS_NAME =  ['article', 'summary']
 PRETRAINED_MODEL_NAME = "t5-small"
 
 # constants related to model evaluation

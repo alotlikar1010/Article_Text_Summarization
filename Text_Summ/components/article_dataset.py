@@ -1,4 +1,4 @@
-from torch.utils.data import Datasst
+from torch.utils.data import Dataset
 from Text_Summ.exception import CustomException
 import sys
 import re
