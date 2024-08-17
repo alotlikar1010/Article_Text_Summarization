@@ -1,1 +1,1 @@
-# Article_Text_Summarization Using T5-Small 
+# Text_Summarization of Articles Using T5 Model
